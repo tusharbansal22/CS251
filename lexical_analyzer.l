@@ -8,12 +8,12 @@
 "int"|"char"|"string"|"bool"|"float"|"double" {printf("Data type ");}
 " " {}
 "if("(.)*")""{"(.)*"}" {printf("IfElse Statement ");}
-[0-9]+ {printf("Constant");}
+[0-9]+ {printf("Constant ");}
 ";" {printf("Delimiter ");}
 "+"|"-"|"*"|"/"|"%"|"=" {printf("Operator ");}
 [a-zA-Z_]([a-zA-Z0-9_])* {printf("Identifier ");}
 "/*"(.)*"*/" {printf("Comment ");}
- . {printf("SaxSux");} 
+ . {printf("SaxSux ");} 
 %%
 
 int yywrap(void){}
