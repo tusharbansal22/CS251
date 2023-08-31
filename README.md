@@ -8,7 +8,8 @@ Here we have implemented a lexical analayser for C language using the lex tool. 
 
 - Preprocessor Directives
 - Common Data Types like `int`, `char`, `bool`, `string`, `float`, `double`
-- Common Keywords like `main`, `void`, `return`, `struct`, `typedef`
+- Common Keywords like `main`, `void`, `return`, `typedef`
+- Derived Datatypes like Stacks and Queues eg. `queue<int> q;`
 - `if` statements and `else` statements
 - `for` statements and `while` statements
 - String literals like \"hello\"

@@ -9,8 +9,11 @@
 #.* {printf("\n%s is a T_PREPROCESSOR_DIR",yytext);}
 "\n" {printf("\n");}
 int|char|string|bool|float|double  {printf("\n%s is a T_DATA_TYPE",yytext);}
-struct|typedef|do|void|switch|return|main {printf("\n%s is a T_KEYWORD",yytext);}
+typedef|do|void|switch|return|main {printf("\n%s is a T_KEYWORD",yytext);}
 " " {}
+"struct" {printf("\n%s is a T_STRUCT",yytext);}
+"stack<"(.)*">" {printf("\n%s is a T_STACK",yytext);}
+"queue<"(.)*">" {printf("\n%s is a T_QUEUE",yytext);}
 "if ("(.)*")""{"(.)*"}" {printf("\n%s is a T_IF",yytext);}
 "else""{"(.)*"}" {printf("\n%s is a T_ELSE",yytext);}
 "for("(.)*";"(.)*";"(.)*")""{"(.)*"}" {printf("\n%s is a T_FOR",yytext);}
