@@ -17,7 +17,6 @@
 %token T_BRACKETS 
 %token T_CURLY_BRACKETS 
 %token T_CONST 
-%token T_FLOAT 
 %token T_DELIMITER 
 %token T_OPERATOR 
 %token T_LOGICAL_OPERATOR 
@@ -45,21 +44,21 @@ expr: expr '+' expr
     | expr '*' expr
     | expr '/' expr
     | '(' expr ')'
-    | '-' expr %prec NEGATIVE
-    | NUMBER
+    | '-' expr 
+    | T_CONST
 
-declaration: type IDENTIFIER
+declaration: type T_IDENTIFIER
 
-type: 'int'
-    | 'char'
-    | 'float'
-    | 'double'
+type: 'i''n''t'
+    | 'c''h''a''r'
+    | 'f''l''o''a''t'
+    | 'd''o''u''b''l''e'
 
-conditional_statement: 'if' '(' expr ')' '{' statement_list '}'
-                    | 'if' '(' expr ')' '{' statement_list '}' 'else' '{' statement_list '}'
+conditional_statement: 'i''f' '(' expr ')' '{' statement_list '}'
+                    | 'i''f' '(' expr ')' '{' statement_list '}' 'e''l''s''e' '{' statement_list '}'
 
-loop_statement: 'while' '(' expr ')' '{' statement_list '}'
-              | 'for' '(' declaration ';' expr ';' expr ')' '{' statement_list '}'
+loop_statement: 'w''h''i''l''e' '(' expr ')' '{' statement_list '}'
+              | 'f''o''r' '(' declaration ';' expr ';' expr ')' '{' statement_list '}'
 
 %%
 
