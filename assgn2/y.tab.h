@@ -49,77 +49,71 @@ extern int yydebug;
 # define YYTOKENTYPE
   enum yytokentype
   {
-    T_INT = 258,
-    T_CHAR = 259,
-    T_STRING = 260,
-    T_BOOL = 261,
-    T_FLOAT = 262,
-    T_DOUBLE = 263,
-    T_TYPEDEF = 264,
-    T_DO = 265,
-    T_VOID = 266,
-    T_SWITCH = 267,
-    T_RETURN = 268,
-    T_MAIN = 269,
-    T_STRUCT = 270,
-    T_STACK = 271,
-    T_QUEUE = 272,
-    T_IF = 273,
-    T_ELSE = 274,
-    T_FOR = 275,
-    T_WHILE = 276,
-    T_STRING_LITERAL = 277,
-    T_CONTINUE = 278,
-    T_BREAK = 279,
-    T_BRACKETS = 280,
-    T_CURLY_BRACKETS = 281,
-    T_CONST = 282,
-    T_DELIMITER = 283,
-    T_OPERATOR = 284,
-    T_LOGICAL_OPERATOR = 285,
-    T_BITWISE_OPERATOR = 286,
-    T_SHIFT_OPERATOR = 287,
-    T_RELATIONAL_OPERATOR = 288,
-    T_IDENTIFIER = 289,
-    T_BLOCK_COMMENT = 290,
-    T_LINE_COMMENT = 291
+    VOID = 258,
+    CHARACTER = 259,
+    PRINTFF = 260,
+    SCANFF = 261,
+    INT = 262,
+    FLOAT = 263,
+    CHAR = 264,
+    FOR = 265,
+    IF = 266,
+    ELSE = 267,
+    TRUE = 268,
+    FALSE = 269,
+    NUMBER = 270,
+    FLOAT_NUM = 271,
+    ID = 272,
+    LE = 273,
+    GE = 274,
+    EQ = 275,
+    NE = 276,
+    GT = 277,
+    LT = 278,
+    AND = 279,
+    OR = 280,
+    STR = 281,
+    ADD = 282,
+    MULTIPLY = 283,
+    DIVIDE = 284,
+    SUBTRACT = 285,
+    UNARY = 286,
+    INCLUDE = 287,
+    RETURN = 288
   };
 #endif
 /* Tokens.  */
-#define T_INT 258
-#define T_CHAR 259
-#define T_STRING 260
-#define T_BOOL 261
-#define T_FLOAT 262
-#define T_DOUBLE 263
-#define T_TYPEDEF 264
-#define T_DO 265
-#define T_VOID 266
-#define T_SWITCH 267
-#define T_RETURN 268
-#define T_MAIN 269
-#define T_STRUCT 270
-#define T_STACK 271
-#define T_QUEUE 272
-#define T_IF 273
-#define T_ELSE 274
-#define T_FOR 275
-#define T_WHILE 276
-#define T_STRING_LITERAL 277
-#define T_CONTINUE 278
-#define T_BREAK 279
-#define T_BRACKETS 280
-#define T_CURLY_BRACKETS 281
-#define T_CONST 282
-#define T_DELIMITER 283
-#define T_OPERATOR 284
-#define T_LOGICAL_OPERATOR 285
-#define T_BITWISE_OPERATOR 286
-#define T_SHIFT_OPERATOR 287
-#define T_RELATIONAL_OPERATOR 288
-#define T_IDENTIFIER 289
-#define T_BLOCK_COMMENT 290
-#define T_LINE_COMMENT 291
+#define VOID 258
+#define CHARACTER 259
+#define PRINTFF 260
+#define SCANFF 261
+#define INT 262
+#define FLOAT 263
+#define CHAR 264
+#define FOR 265
+#define IF 266
+#define ELSE 267
+#define TRUE 268
+#define FALSE 269
+#define NUMBER 270
+#define FLOAT_NUM 271
+#define ID 272
+#define LE 273
+#define GE 274
+#define EQ 275
+#define NE 276
+#define GT 277
+#define LT 278
+#define AND 279
+#define OR 280
+#define STR 281
+#define ADD 282
+#define MULTIPLY 283
+#define DIVIDE 284
+#define SUBTRACT 285
+#define UNARY 286
+#define INCLUDE 287
+#define RETURN 288
 
 /* Value type.  */
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
