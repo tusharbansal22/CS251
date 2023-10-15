@@ -23,7 +23,11 @@ extern int yylval;
 "true"                      { return TRUE; }
 "false"                     { return FALSE; }
 "+"                         { return ADD; }
+"+="                        { return CADD; }
+"++"                        { return INC; }
 "-"                         { return SUB; }
+"-="                        { return CSUB; }
+"--"                        { return DEC; }
 "*"                         { return MUL; }
 "/"                         { return DIV; }
 "("                         { return OP; }

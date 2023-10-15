@@ -5,30 +5,37 @@ extern int yyparse();
 void yyerror(const char *s);
 %}
 
-%token INCLUDE MAIN SM CM INT FLOAT CHAR VOID RETURN PRINTF SCANF PTR FOR IF ELSE TRUE FALSE ADD SUB MUL DIV OP CP OCP CCP LE GE EQ CEQ NE GT LT AND OR NUM ID STR CHARACTER EOL
+%token INCLUDE MAIN SM CM INT FLOAT CHAR VOID RETURN PRINTF SCANF PTR FOR IF ELSE TRUE FALSE ADD CADD INC SUB CSUB DEC MUL DIV OP CP OCP CCP LE GE EQ CEQ NE GT LT AND OR NUM ID STR CHARACTER EOL
 %start program
 
 %%
 
 program: header functions main_function {printf("The code is valid."); return 0;}
-    | main_function {printf("The code is valid."); return 0;}
+    | header main_function {printf("The code is valid."); return 0;}
+    | ID
     ;
 
 header: INCLUDE;
 
-main_function: INT MAIN OP CP fun_block;
+functions: datatype ID OP fun_param CP fun_block functions;
 
-functions: datatype ID OP datatype ID CP fun_block functions
-    |
-    ;
+main_function: INT MAIN OP CP fun_block;
 
 datatype: INT
     | FLOAT
     | CHAR
     ;
 
+fun_param: datatype ID
+    | datatype ID CM fun_param
+    ;
+
 fun_block: OCP stmts RETURN stmt CCP 
     ;
+
+fun_call: ID OP ID ids CP
+    | ID OP CP
+    ; 
 
 block:stmt
     | OCP stmts CCP
@@ -38,11 +45,17 @@ stmts: stmt stmts
     | 
     ;
 
-ids: CM ID ids 
+ids: CM ID meq ids 
     |
     ;
 
+meq: EQ ID
+    | EQ NUM
+    | 
+    ;
+
 init: datatype ID ids
+    | datatype ID meq ids
     ;
 
 stmt: expr SM
@@ -58,8 +71,12 @@ else: ELSE block
 expr: ID
     | NUM
     | PRINTF OP STR CP 
+    | PRINTF OP STR ids 
+    CP
     | SCANF OP STR CM PTR CP
     | SCANF OP STR CP
+    | INC ID
+    | DEC ID
     | expr ADD expr
     | expr SUB expr
     | expr MUL expr
@@ -73,6 +90,8 @@ expr: ID
     | expr AND expr
     | expr OR expr
     | expr CEQ expr
+    | expr CADD expr
+    | expr CSUB expr
     ;
 
 %%

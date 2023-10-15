@@ -67,27 +67,31 @@ extern int yydebug;
     TRUE = 273,
     FALSE = 274,
     ADD = 275,
-    SUB = 276,
-    MUL = 277,
-    DIV = 278,
-    OP = 279,
-    CP = 280,
-    OCP = 281,
-    CCP = 282,
-    LE = 283,
-    GE = 284,
-    EQ = 285,
-    CEQ = 286,
-    NE = 287,
-    GT = 288,
-    LT = 289,
-    AND = 290,
-    OR = 291,
-    NUM = 292,
-    ID = 293,
-    STR = 294,
-    CHARACTER = 295,
-    EOL = 296
+    CADD = 276,
+    INC = 277,
+    SUB = 278,
+    CSUB = 279,
+    DEC = 280,
+    MUL = 281,
+    DIV = 282,
+    OP = 283,
+    CP = 284,
+    OCP = 285,
+    CCP = 286,
+    LE = 287,
+    GE = 288,
+    EQ = 289,
+    CEQ = 290,
+    NE = 291,
+    GT = 292,
+    LT = 293,
+    AND = 294,
+    OR = 295,
+    NUM = 296,
+    ID = 297,
+    STR = 298,
+    CHARACTER = 299,
+    EOL = 300
   };
 #endif
 /* Tokens.  */
@@ -109,27 +113,31 @@ extern int yydebug;
 #define TRUE 273
 #define FALSE 274
 #define ADD 275
-#define SUB 276
-#define MUL 277
-#define DIV 278
-#define OP 279
-#define CP 280
-#define OCP 281
-#define CCP 282
-#define LE 283
-#define GE 284
-#define EQ 285
-#define CEQ 286
-#define NE 287
-#define GT 288
-#define LT 289
-#define AND 290
-#define OR 291
-#define NUM 292
-#define ID 293
-#define STR 294
-#define CHARACTER 295
-#define EOL 296
+#define CADD 276
+#define INC 277
+#define SUB 278
+#define CSUB 279
+#define DEC 280
+#define MUL 281
+#define DIV 282
+#define OP 283
+#define CP 284
+#define OCP 285
+#define CCP 286
+#define LE 287
+#define GE 288
+#define EQ 289
+#define CEQ 290
+#define NE 291
+#define GT 292
+#define LT 293
+#define AND 294
+#define OR 295
+#define NUM 296
+#define ID 297
+#define STR 298
+#define CHARACTER 299
+#define EOL 300
 
 /* Value type.  */
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
