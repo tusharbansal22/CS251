@@ -10,14 +10,17 @@ void yyerror(const char *s);
 
 %%
 
-program: header functions main_function {printf("The code is valid."); return 0;}
+program: header function main_function {printf("The code is valid."); return 0;}
     | header main_function {printf("The code is valid."); return 0;}
-    | ID
     ;
 
 header: INCLUDE;
 
-functions: datatype ID OP fun_param CP fun_block functions;
+function: datatype ID OP fun_param CP fun_block ;
+
+functions: function
+    | function functions 
+    ;
 
 main_function: INT MAIN OP CP fun_block;
 
@@ -71,12 +74,12 @@ else: ELSE block
 expr: ID
     | NUM
     | PRINTF OP STR CP 
-    | PRINTF OP STR ids 
-    CP
+    | PRINTF OP STR ids CP
     | SCANF OP STR CM PTR CP
     | SCANF OP STR CP
     | INC ID
     | DEC ID
+    | fun_call
     | expr ADD expr
     | expr SUB expr
     | expr MUL expr
