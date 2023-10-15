@@ -50,74 +50,86 @@ extern int yydebug;
   enum yytokentype
   {
     INCLUDE = 258,
-    SM = 259,
-    INT = 260,
-    FLOAT = 261,
-    CHAR = 262,
-    VOID = 263,
-    RETURN = 264,
-    FOR = 265,
-    IF = 266,
-    ELSE = 267,
-    TRUE = 268,
-    FALSE = 269,
-    ADD = 270,
-    SUB = 271,
-    MUL = 272,
-    DIV = 273,
-    OP = 274,
-    CP = 275,
-    OCP = 276,
-    CCP = 277,
-    LE = 278,
-    GE = 279,
-    EQ = 280,
-    NE = 281,
-    GT = 282,
-    LT = 283,
-    AND = 284,
-    OR = 285,
-    NUM = 286,
-    ID = 287,
-    STR = 288,
-    CHARACTER = 289,
-    EOL = 290
+    MAIN = 259,
+    SM = 260,
+    CM = 261,
+    INT = 262,
+    FLOAT = 263,
+    CHAR = 264,
+    VOID = 265,
+    RETURN = 266,
+    PRINTF = 267,
+    SCANF = 268,
+    PTR = 269,
+    FOR = 270,
+    IF = 271,
+    ELSE = 272,
+    TRUE = 273,
+    FALSE = 274,
+    ADD = 275,
+    SUB = 276,
+    MUL = 277,
+    DIV = 278,
+    OP = 279,
+    CP = 280,
+    OCP = 281,
+    CCP = 282,
+    LE = 283,
+    GE = 284,
+    EQ = 285,
+    CEQ = 286,
+    NE = 287,
+    GT = 288,
+    LT = 289,
+    AND = 290,
+    OR = 291,
+    NUM = 292,
+    ID = 293,
+    STR = 294,
+    CHARACTER = 295,
+    EOL = 296
   };
 #endif
 /* Tokens.  */
 #define INCLUDE 258
-#define SM 259
-#define INT 260
-#define FLOAT 261
-#define CHAR 262
-#define VOID 263
-#define RETURN 264
-#define FOR 265
-#define IF 266
-#define ELSE 267
-#define TRUE 268
-#define FALSE 269
-#define ADD 270
-#define SUB 271
-#define MUL 272
-#define DIV 273
-#define OP 274
-#define CP 275
-#define OCP 276
-#define CCP 277
-#define LE 278
-#define GE 279
-#define EQ 280
-#define NE 281
-#define GT 282
-#define LT 283
-#define AND 284
-#define OR 285
-#define NUM 286
-#define ID 287
-#define STR 288
-#define CHARACTER 289
-#define EOL 290
+#define MAIN 259
+#define SM 260
+#define CM 261
+#define INT 262
+#define FLOAT 263
+#define CHAR 264
+#define VOID 265
+#define RETURN 266
+#define PRINTF 267
+#define SCANF 268
+#define PTR 269
+#define FOR 270
+#define IF 271
+#define ELSE 272
+#define TRUE 273
+#define FALSE 274
+#define ADD 275
+#define SUB 276
+#define MUL 277
+#define DIV 278
+#define OP 279
+#define CP 280
+#define OCP 281
+#define CCP 282
+#define LE 283
+#define GE 284
+#define EQ 285
+#define CEQ 286
+#define NE 287
+#define GT 288
+#define LT 289
+#define AND 290
+#define OR 291
+#define NUM 292
+#define ID 293
+#define STR 294
+#define CHARACTER 295
+#define EOL 296
 
 /* Value type.  */
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED

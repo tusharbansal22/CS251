@@ -5,21 +5,24 @@ extern int yyparse();
 void yyerror(const char *s);
 %}
 
-%token INCLUDE SM INT FLOAT CHAR VOID RETURN FOR IF ELSE TRUE FALSE ADD SUB MUL DIV OP CP OCP CCP LE GE EQ NE GT LT AND OR NUM ID STR CHARACTER EOL
+%token INCLUDE MAIN SM CM INT FLOAT CHAR VOID RETURN PRINTF SCANF PTR FOR IF ELSE TRUE FALSE ADD SUB MUL DIV OP CP OCP CCP LE GE EQ CEQ NE GT LT AND OR NUM ID STR CHARACTER EOL
 %start program
 
 %%
 
-program: header function {printf("The code is valid."); return 0;}
+program: header main_function {printf("The code is valid."); return 0;}
     ;
 
 header: INCLUDE;
 
-function: datatype ID OP datatype ID CP block;
+main_function: INT MAIN OP CP fun_block;
 
 datatype: INT
     | FLOAT
     | CHAR
+    ;
+
+fun_block: OCP stmts RETURN stmt CCP 
     ;
 
 block:stmt
@@ -33,7 +36,7 @@ stmts: stmt stmts
 stmt: expr SM
     | IF OP expr CP block else
     | FOR OP stmt stmt expr CP block
-    |
+    | datatype ID SM
     ;
 
 else: ELSE block
@@ -42,6 +45,9 @@ else: ELSE block
 
 expr: ID
     | NUM
+    | PRINTF OP STR CP 
+    | SCANF OP STR CM PTR CP
+    | SCANF OP STR CP
     | expr ADD expr
     | expr SUB expr
     | expr MUL expr
@@ -54,19 +60,8 @@ expr: ID
     | expr LT expr
     | expr AND expr
     | expr OR expr
+    | expr CEQ expr
     ;
-
-/* line: EOL
-    | exp EOL { printf("%d\n", $1); }
-    ; */
-
-/* exp: NUM
-   | exp ADD exp { $$ = $1 + $3; }
-   | exp SUB exp { $$ = $1 - $3; }
-   | exp MUL exp { $$ = $1 * $3; }
-   | exp DIV exp { $$ = $1 / $3; }
-   | OP exp CP   { $$ = $2; }
-   ; */
 
 %%
 

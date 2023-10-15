@@ -6,12 +6,17 @@ extern int yylval;
 %%
 
 ^"#include"[ ]*<.+\.h>      { return INCLUDE; }
+"main"                      { return MAIN; }
 ";"                         { return SM; }
+","                         { return CM; }
 "int"                       { return INT; }
 "float"                     { return FLOAT; }
 "char"                      { return CHAR; }
 "void"                      { return VOID; }
 "return"                    { return RETURN; }
+"printf"                    { return PRINTF; }
+"scanf"                     { return SCANF; }
+"&"[a-zA-Z]([a-zA-Z]|[0-9])* { return PTR; }
 "for"	                    { return FOR; }
 "if"	                    { return IF; }
 "else"	                    { return ELSE; }
@@ -27,7 +32,8 @@ extern int yylval;
 "}"                         { return CCP; }
 "<="                        { return LE; }
 ">="                        { return GE; }
-"="                        { return EQ; }
+"="                         { return EQ; }
+"=="                        { return CEQ; }
 "!="                        { return NE; }
 ">"	                        { return GT; }
 "<"	                        { return LT; }
