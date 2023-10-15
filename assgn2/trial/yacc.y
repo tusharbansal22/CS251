@@ -10,12 +10,17 @@ void yyerror(const char *s);
 
 %%
 
-program: header main_function {printf("The code is valid."); return 0;}
+program: header functions main_function {printf("The code is valid."); return 0;}
+    | main_function {printf("The code is valid."); return 0;}
     ;
 
 header: INCLUDE;
 
 main_function: INT MAIN OP CP fun_block;
+
+functions: datatype ID OP datatype ID CP fun_block functions
+    |
+    ;
 
 datatype: INT
     | FLOAT
@@ -33,10 +38,17 @@ stmts: stmt stmts
     | 
     ;
 
+ids: CM ID ids 
+    |
+    ;
+
+init: datatype ID ids
+    ;
+
 stmt: expr SM
     | IF OP expr CP block else
     | FOR OP stmt stmt expr CP block
-    | datatype ID SM
+    | init SM
     ;
 
 else: ELSE block
